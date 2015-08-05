@@ -1,85 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FibonacciHeap
+﻿namespace FibonacciHeap
 {
-    internal class FibonacciHeapNode<T>
+    public class FibonacciHeapNode<T>
     {
-        private readonly T _element;
-
-        private FibonacciHeapNode<T> _child;
-
-        private int _degree;
-
-        private FibonacciHeapNode<T> _left;
-
-        private bool _marked;
-
-        private FibonacciHeapNode<T> _parent;
-
-        private FibonacciHeapNode<T> _right;
-
-        public FibonacciHeapNode(T element)
+        public FibonacciHeapNode(T data, double key)
         {
-            _degree = 0;
-            _left = this;
-            _right = this;
-            _marked = false;
-            this._element = element;
+            Right = this;
+            Left = this;
+            Data = data;
+            Key = key;
         }
 
-        public int Degree
-        {
-            get { return _degree; }
-        }
-
-        public T Element
-        {
-            get { return _element; }
-        }
-
-        public bool Marked
-        {
-            get { return _marked; }
-            set { _marked = value; }
-        }
-
-        internal FibonacciHeapNode<T> Child
-        {
-            get { return _child; }
-            set { _child = value; }
-        }
-
-        internal FibonacciHeapNode<T> Left
-        {
-            get { return _left; }
-            set { _left = value; }
-        }
-
-        internal FibonacciHeapNode<T> Parent
-        {
-            get { return _parent; }
-            set { _parent = value; }
-        }
-
-        internal FibonacciHeapNode<T> Right
-        {
-            get { return _right; }
-            set { _right = value; }
-        }
-
-        public void DecreaseDegree()
-        {
-            _degree--;
-        }
-
-        public void IncreaseDegree()
-        {
-            _degree++;
-        }
+        public T Data { get; }
+        public FibonacciHeapNode<T> Child { get; set; }
+        public FibonacciHeapNode<T> Left { get; set; }
+        public FibonacciHeapNode<T> Parent { get; set; }
+        public FibonacciHeapNode<T> Right { get; set; }
+        public bool Mark { get; set; }
+        public double Key { get; set; }
+        public int Degree { get; set; }
     }
 }
