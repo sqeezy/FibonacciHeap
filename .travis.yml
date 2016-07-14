@@ -1,12 +1,9 @@
 language: csharp
-
 script:
-    - .\\build.sh
-
+    - .\build.sh
 os:
     - linux
     - osx
-
 cache:
   directories:
     - tools
