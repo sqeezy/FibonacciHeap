@@ -1,2 +1,12 @@
 language: csharp
-solution: FibonacciHeap.sln
+
+script:
+    - .\build.sh
+
+os:
+    - linux
+    - osx
+
+cache:
+  directories:
+    - tools
