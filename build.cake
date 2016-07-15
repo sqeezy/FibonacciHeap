@@ -5,7 +5,7 @@ Task("Default")
 {
   if(IsRunningOnUnix())
   {
-      XBuild("FibonacciHeap.Sln").WithProperty("POSIX","True");
+      XBuild("FibonacciHeap.Sln",new XBuildSettings().WithProperty("POSIX","True"));
   }
   else
   {
