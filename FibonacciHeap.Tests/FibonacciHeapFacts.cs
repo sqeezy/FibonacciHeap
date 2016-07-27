@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using FibonacciHeap;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FibonacciHeap.Tests
 {
