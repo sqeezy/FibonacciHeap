@@ -64,10 +64,8 @@ namespace FibonacciHeap
         /// Inserts a new node with its key.
         /// O(1)
         /// </summary>
-        public void Insert(FibonacciHeapNode<T> node, double key)
+        public void Insert(FibonacciHeapNode<T> node)
         {
-            node.Key = key;
-
             // concatenate node into min list
             if (_minNode != null)
             {
@@ -76,7 +74,7 @@ namespace FibonacciHeap
                 _minNode.Right = node;
                 node.Right.Left = node;
 
-                if (key < _minNode.Key)
+                if (node.Key < _minNode.Key)
                 {
                     _minNode = node;
                 }
