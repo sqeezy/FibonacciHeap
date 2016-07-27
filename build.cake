@@ -1,9 +1,20 @@
+#tool "nuget:?package=xunit.runner.console"
+
 var target = Argument("target", "Default");
+var outputDir = "./bin";
 
 Task("Default")
+  .IsDependentOn("Xunit")
   .Does(() =>
 {
 });
+
+Task("Xunit")
+  .IsDependentOn("Build")
+  .Does(()=>
+  {
+    XUnit2(outputDir+"/**/*.Tests.dll");
+  });
 
 Task("Build")
   .IsDependentOn("Nuget")
@@ -29,7 +40,7 @@ Task("Nuget")
 Task("Clean")
   .Does(()=>
   {
-
+    CleanDirectory(outputDir);
   });
 
 RunTarget(target);
