@@ -28,7 +28,6 @@ Task("Build")
     {
       MSBuild("FibonacciHeap.sln", new MSBuildSettings {
         Configuration = "Release",
-        Verbosity = Verbosity.Minimal
       });
     }
   });
@@ -37,9 +36,7 @@ Task("NuGet-Restore")
   .IsDependentOn("Clean")
   .Does(()=>
   {
-    NuGetRestore("./", new NuGetRestoreSettings {
-          Verbosity = NuGetVerbosity.Quiet
-    });
+    NuGetRestore("./src/FibonacciHeap.Tests/project.json");
   });
 
 Task("Clean")
