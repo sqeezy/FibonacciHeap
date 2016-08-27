@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciHeap", "FibonacciHeap\FibonacciHeap.csproj", "{4F7AD55D-ACEA-468F-AD23-1E03DDAE475E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciHeap", "src\FibonacciHeap\FibonacciHeap.csproj", "{4F7AD55D-ACEA-468F-AD23-1E03DDAE475E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciHeap.Tests", "FibonacciHeap.Tests\FibonacciHeap.Tests.csproj", "{A29F1CAF-75D8-4224-914D-BCC516C45B43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciHeap.Tests", "src\FibonacciHeap.Tests\FibonacciHeap.Tests.csproj", "{A29F1CAF-75D8-4224-914D-BCC516C45B43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
