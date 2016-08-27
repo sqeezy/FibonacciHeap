@@ -22,9 +22,7 @@ Task("Build")
   {
     if(IsRunningOnUnix())
     {
-        XBuild("FibonacciHeap.sln",new XBuildSettings {
-          Configuration = "Release"
-        }.WithProperty("POSIX","True"));
+        XBuild("FibonacciHeap.sln",new XBuildSettings().WithProperty("POSIX","True"));
     }
     else
     {
