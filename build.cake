@@ -17,7 +17,7 @@ Task("Xunit")
   });
 
 Task("Build")
-  .IsDependentOn("NuGet-Restore")
+  .IsDependentOn("Nuget")
   .Does(()=>
   {
     if(IsRunningOnUnix())
@@ -26,20 +26,15 @@ Task("Build")
     }
     else
     {
-      MSBuild("FibonacciHeap.sln", new MSBuildSettings {
-        Configuration = "Release",
-        Verbosity = Verbosity.Minimal
-      });
+        MSBuild("FibonacciHeap.sln");
     }
   });
 
-Task("NuGet-Restore")
+Task("Nuget")
   .IsDependentOn("Clean")
   .Does(()=>
   {
-    NuGetRestore("./", new NuGetRestoreSettings {
-          Verbosity = NuGetVerbosity.Quiet
-    });
+    NuGetRestore("./");
   });
 
 Task("Clean")
