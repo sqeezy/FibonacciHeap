@@ -13,7 +13,7 @@ Task("Xunit")
   .IsDependentOn("Build")
   .Does(()=>
   {
-    XUnit2(outputDir+"/**/*.Tests.dll");
+    XUnit2("./src/FibonacciHeap.Tests/bin/Release/FibonacciHeap.Tests.dll");
   });
 
 Task("Build")
@@ -44,7 +44,7 @@ Task("Nuget")
 Task("Clean")
   .Does(()=>
   {
-    CleanDirectory(outputDir);
+    CleanDirectories(outputDir+"/**");
   });
 
 RunTarget(target);
