@@ -8,9 +8,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FibonacciHeap")]
 [assembly: AssemblyDescription("Simple implementation of the Fibonacci-Heap-Structure")]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4f7ad55d-acea-468f-ad23-1e03ddae475e")]
-
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
