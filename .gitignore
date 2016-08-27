@@ -31,3 +31,4 @@ packages/
 tools/
 *.lock.json
 .vscode
+*.nupkg
