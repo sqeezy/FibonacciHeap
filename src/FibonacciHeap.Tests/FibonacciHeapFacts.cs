@@ -10,8 +10,10 @@ namespace FibonacciHeap.Tests
 {
     public class FibonacciHeapFacts
     {
-        private FibonacciHeapNode<int> _node;
-        private FibonacciHeap<int> _sut;
+        private FibonacciHeapNodeGenericKey<int, int> _nodeGeneric;
+        private FibonacciHeapGenericKey<int, int> _sutGeneric;
+        private FibonacciHeap< int > _sut;
+        private FibonacciHeapNode< int > _node;
 
         [Fact]
         public void It_can_be_constructed()
@@ -27,14 +29,39 @@ namespace FibonacciHeap.Tests
             _sut.Insert(_node);
         }
 
-        private void GivenNode()
+
+        [Fact]
+        public void It_can_be_constructed_generic()
         {
-            _node = new FibonacciHeapNode<int>(0, 0);
+            WhenSutIsCreatedGeneric();
         }
 
-        private void WhenSutIsCreated()
+        [Fact]
+        public void It_can_store_an_element_of_data_generic()
         {
-            _sut = new FibonacciHeap<int>();
+            GivenNodeGeneric();
+            WhenSutIsCreatedGeneric();
+            _sutGeneric.Insert(_nodeGeneric);
+        }
+
+        private void GivenNode( )
+        {
+            _node = new FibonacciHeapNode< int >( 0, 0 );
+        }
+
+        private void WhenSutIsCreated( )
+        {
+            _sut = new FibonacciHeap< int >(  );
+        }
+
+        private void GivenNodeGeneric()
+        {
+            _nodeGeneric = new FibonacciHeapNodeGenericKey<int, int>(0, 0);
+        }
+
+        private void WhenSutIsCreatedGeneric()
+        {
+            _sutGeneric = new FibonacciHeapGenericKey<int, int>(int.MinValue);
         }
     }
 }
