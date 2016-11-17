@@ -10,8 +10,8 @@ namespace FibonacciHeap.Tests
 {
     public class FibonacciHeapFacts
     {
-        private FibonacciHeapNode<int> _node;
-        private FibonacciHeap<int> _sut;
+        private FibonacciHeapNode<int, double> _node;
+        private FibonacciHeap<int, double> _sut;
 
         [Fact]
         public void It_can_be_constructed()
@@ -29,12 +29,12 @@ namespace FibonacciHeap.Tests
 
         private void GivenNode()
         {
-            _node = new FibonacciHeapNode<int>(0, 0);
+            _node = new FibonacciHeapNode<int, double>(0, 0);
         }
 
         private void WhenSutIsCreated()
         {
-            _sut = new FibonacciHeap<int>();
+            _sut = new FibonacciHeap<int, double>(double.NegativeInfinity);
         }
     }
 }
