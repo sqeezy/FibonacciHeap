@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using FibonacciHeap;
+﻿using Xunit;
 
 namespace FibonacciHeap.Tests
 {
     public class FibonacciHeapFacts
     {
-        private FibonacciHeapNodeGenericKey<int, int> _nodeGeneric;
-        private FibonacciHeapGenericKey<int, int> _sutGeneric;
-        private FibonacciHeap< int > _sut;
-        private FibonacciHeapNode< int > _node;
+        private FibonacciHeapNode<int, int> _nodeGeneric;
+        private FibonacciHeap<int, int> _sutGeneric;
+        private FibonacciHeapDoubleKey< int > _sut;
+        private FibonacciHeapNodeDoubleKey< int > _nodeDoubleKey;
 
         [Fact]
         public void It_can_be_constructed()
@@ -26,7 +20,7 @@ namespace FibonacciHeap.Tests
         {
             GivenNode();
             WhenSutIsCreated();
-            _sut.Insert(_node);
+            _sut.Insert(_nodeDoubleKey);
         }
 
 
@@ -46,22 +40,22 @@ namespace FibonacciHeap.Tests
 
         private void GivenNode( )
         {
-            _node = new FibonacciHeapNode< int >( 0, 0 );
+            _nodeDoubleKey = new FibonacciHeapNodeDoubleKey< int >( 0, 0 );
         }
 
         private void WhenSutIsCreated( )
         {
-            _sut = new FibonacciHeap< int >(  );
+            _sut = new FibonacciHeapDoubleKey< int >(  );
         }
 
         private void GivenNodeGeneric()
         {
-            _nodeGeneric = new FibonacciHeapNodeGenericKey<int, int>(0, 0);
+            _nodeGeneric = new FibonacciHeapNode<int, int>(0, 0);
         }
 
         private void WhenSutIsCreatedGeneric()
         {
-            _sutGeneric = new FibonacciHeapGenericKey<int, int>(int.MinValue);
+            _sutGeneric = new FibonacciHeap<int, int>(int.MinValue);
         }
     }
 }
