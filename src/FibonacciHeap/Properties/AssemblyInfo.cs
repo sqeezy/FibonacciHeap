@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FibonacciHeap")]
+[assembly: AssemblyTitle("FibonacciHeapGenericKey")]
 [assembly: AssemblyDescription("Simple implementation of the Fibonacci-Heap-Structure")]
 [assembly: AssemblyCompanyAttribute("Anton Herzog")]
 

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="FibonacciHeap.cs" />
     <Compile Include="FibonacciHeapNode.cs" />
+    <Compile Include="FibonacciHeapNodeDoubleKey.cs" />
+    <Compile Include="FibonacciHeapDoubleKey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
