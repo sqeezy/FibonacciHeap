@@ -17,17 +17,30 @@ Task("Xunit")
   });
 
 Task("Build")
-  .IsDependentOn("Nuget")
+  .IsDependentOn("NugetRestore")
   .Does(()=>
   {
     DotNetCoreMSBuild("FibonacciHeap.sln");
   });
 
-Task("Nuget")
+Task("NugetRestore")
   .IsDependentOn("Clean")
   .Does(()=>
   {
     DotNetCoreRestore();
+  });
+
+Task("NugetPack")
+  .IsDependentOn("Build")
+  .Does(()=>
+  {
+    var settings = new DotNetCorePackSettings
+    {
+      Configuration = "Release",
+      OutputDirectory = "../../nupkgs"
+    };
+
+    DotNetCorePack("src/FibonacciHeap", settings);
   });
 
 Task("Clean")
