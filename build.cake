@@ -13,23 +13,21 @@ Task("Xunit")
   .IsDependentOn("Build")
   .Does(()=>
   {
-    XUnit2("./src/FibonacciHeap.Tests/bin/Release/FibonacciHeap.Tests.dll");
+    DotNetCoreTest("./src/FibonacciHeap.Tests/FibonacciHeap.Tests.csproj");
   });
 
 Task("Build")
   .IsDependentOn("Nuget")
   .Does(()=>
   {
-    MSBuild("FibonacciHeap.sln", new MSBuildSettings {
-      Configuration = "Release"
-    });
+    DotNetCoreMSBuild("FibonacciHeap.sln");
   });
 
 Task("Nuget")
   .IsDependentOn("Clean")
   .Does(()=>
   {
-    NuGetRestore("./");
+    DotNetCoreRestore();
   });
 
 Task("Clean")
