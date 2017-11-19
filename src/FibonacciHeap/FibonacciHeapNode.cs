@@ -1,12 +1,14 @@
-﻿namespace FibonacciHeap
+﻿using System;
+
+namespace FibonacciHeap
 {
     /// <summary>
     /// Represents the one node in the Fibonacci Heap.
     /// </summary>
     /// <typeparam name="T">Type of the object to be stored.</typeparam>
     /// <typeparam name="TKey">Type of the key to be used for the stored object. 
-    /// Has to implement the <see cref="System.IComparable"/> interface.</typeparam>
-    public class FibonacciHeapNode<T, TKey> where TKey: System.IComparable
+    /// Has to implement the <see cref="IComparable"/> interface.</typeparam>
+    public class FibonacciHeapNode<T, TKey> where TKey: IComparable<TKey>
     {
         public FibonacciHeapNode(T data, TKey key)
         {

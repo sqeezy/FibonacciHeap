@@ -8,7 +8,7 @@
     /// </summary>
     /// <typeparam name="T">Type of the stored objects.</typeparam>
     /// <typeparam name="TKey">Type of the object key. Should implement IComparable.</typeparam>
-    public class FibonacciHeap<T, TKey> where TKey : IComparable
+    public class FibonacciHeap<T, TKey> where TKey : IComparable<TKey>
     {
         /// <summary>
         /// Maximum nodes quantity in the heap.
