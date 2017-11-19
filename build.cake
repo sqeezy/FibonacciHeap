@@ -46,7 +46,9 @@ Task("NugetPack")
 Task("Clean")
   .Does(()=>
   {
-    CleanDirectories(outputDir+"/**");
+    CleanDirectories("**/bin/**");
+    CleanDirectories("**/obj/**");
+    CleanDirectories("nupkgs");
   });
 
 RunTarget(target);
