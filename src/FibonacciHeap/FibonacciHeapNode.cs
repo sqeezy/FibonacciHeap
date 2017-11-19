@@ -19,7 +19,7 @@
         /// <summary>
         /// Gets or sets the node data object.
         /// </summary>
-        public T Data { get; }
+        public T Data { get; set;}
 
         /// <summary>
         /// Gets or sets the reference to the first child node.
