@@ -13,29 +13,42 @@ Task("Xunit")
   .IsDependentOn("Build")
   .Does(()=>
   {
-    XUnit2("./src/FibonacciHeap.Tests/bin/Release/FibonacciHeap.Tests.dll");
+    DotNetCoreTest("./src/FibonacciHeap.Tests/FibonacciHeap.Tests.csproj");
   });
 
 Task("Build")
-  .IsDependentOn("Nuget")
+  .IsDependentOn("NugetRestore")
   .Does(()=>
   {
-    MSBuild("FibonacciHeap.sln", new MSBuildSettings {
-      Configuration = "Release"
-    });
+    DotNetCoreMSBuild("FibonacciHeap.sln");
   });
 
-Task("Nuget")
+Task("NugetRestore")
   .IsDependentOn("Clean")
   .Does(()=>
   {
-    NuGetRestore("./");
+    DotNetCoreRestore();
+  });
+
+Task("NugetPack")
+  .IsDependentOn("Build")
+  .Does(()=>
+  {
+    var settings = new DotNetCorePackSettings
+    {
+      Configuration = "Release",
+      OutputDirectory = "../../nupkgs"
+    };
+
+    DotNetCorePack("src/FibonacciHeap", settings);
   });
 
 Task("Clean")
   .Does(()=>
   {
-    CleanDirectories(outputDir+"/**");
+    CleanDirectories("**/bin/**");
+    CleanDirectories("**/obj/**");
+    CleanDirectories("nupkgs");
   });
 
 RunTarget(target);
