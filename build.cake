@@ -20,18 +20,9 @@ Task("Build")
   .IsDependentOn("Nuget")
   .Does(()=>
   {
-    if(IsRunningOnUnix())
-    {
-        XBuild("FibonacciHeap.sln",new XBuildSettings {
-          Configuration = "Release"
-        }.WithProperty("POSIX","True"));
-    }
-    else
-    {
-        MSBuild("FibonacciHeap.sln", new MSBuildSettings {
-          Configuration = "Release"
-        });
-    }
+    MSBuild("FibonacciHeap.sln", new MSBuildSettings {
+      Configuration = "Release"
+    });
   });
 
 Task("Nuget")
