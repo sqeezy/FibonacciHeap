@@ -31,13 +31,13 @@ Task("NugetRestore")
   });
 
 Task("NugetPack")
-  .IsDependentOn("Build")
+  .IsDependentOn("Clean")
   .Does(()=>
   {
     var settings = new DotNetCorePackSettings
     {
       Configuration = "Release",
-      OutputDirectory = "../../nupkgs"
+      OutputDirectory = "nupkgs"
     };
 
     DotNetCorePack("src/FibonacciHeap", settings);
