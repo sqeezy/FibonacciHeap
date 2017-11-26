@@ -1,6 +1,8 @@
+os:
+    - linux
+    - osx
 language: csharp
 dotnet: 2.0.0
-dist: trustyp
 cache:
   directories:
     - tools
