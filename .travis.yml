@@ -1,10 +1,12 @@
-os:
-    - linux
-    - osx
-language: csharp
 dotnet: 2.0.0
+language: csharp
+matrix:
+  include:
+    - os: linux
+      dist: trustyp
+    - os: osx
 cache:
   directories:
     - tools
 script:
-    - ./build.sh
+  - ./build.sh
