@@ -1,12 +1,10 @@
-dotnet: 2.0.0
 language: csharp
-matrix:
-  include:
-    - os: linux
-      dist: trustyp
-    - os: osx
-cache:
-  directories:
-    - tools
+sudo: required
+dist: trusty
+mono: none
+os:
+  - linux
+  - osx
+osx_image: xcode8.2
 script:
-  - ./build.sh
+- ./build.sh
