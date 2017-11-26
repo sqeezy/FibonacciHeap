@@ -1,7 +1,6 @@
 language: csharp
 sudo: required
 dist: trusty
-mono: none
 os:
   - linux
   - osx
