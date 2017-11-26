@@ -1,8 +1,10 @@
 language: csharp
 dotnet: 2.0.0
-dist: trustyp
-cache:
-  directories:
-    - tools
+sudo: required
+dist: trusty
+os:
+  - linux
+  - osx
+osx_image: xcode8.2
 script:
-    - ./build.sh
+- ./build.sh
