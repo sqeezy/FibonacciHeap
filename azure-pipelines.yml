@@ -1,4 +1,5 @@
 jobs:
+- job:
 
   pool:
     vmImage: 'vs2017-win2016'
