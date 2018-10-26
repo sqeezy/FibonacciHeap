@@ -7,4 +7,5 @@ os:
   - osx
 osx_image: xcode8.2
 script:
+  - git fetch --unshallow
   - ./build.sh
