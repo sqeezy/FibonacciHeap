@@ -1,5 +1,3 @@
-#tool "nuget:?package=xunit.runner.console"
-
 var target = Argument("target", "Default");
 var outputDir = "./bin";
 
