@@ -4,6 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
       <VersionPrefix>0.2.0</VersionPrefix>
       <VersionSuffix>beta</VersionSuffix>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+      <Authors>Anton Herzog</Authors>
+      <Company />
+      <Description>Simple implementation of the Fibonacci Head Datastructure.</Description>
+      <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
   </PropertyGroup>
 
 </Project>
