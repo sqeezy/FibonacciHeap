@@ -1,4 +1,9 @@
-pool:
-  vmImage: 'vs2017-win2016'
-- task: Tests
-    - powershell: ./build.ps1 -Target Xunit
+jobs:
+
+  pool:
+    vmImage: 'vs2017-win2016'
+  
+  steps:
+
+  - task: Tests
+      - powershell: ./build.ps1 -Target Xunit
