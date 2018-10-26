@@ -4,10 +4,7 @@ var target = Argument("target", "Default");
 var outputDir = "./bin";
 
 Task("Default")
-  .IsDependentOn("Xunit")
-  .Does(() =>
-{
-});
+  .IsDependentOn("Xunit");
 
 Task("Xunit")
   .IsDependentOn("Build")
@@ -20,7 +17,8 @@ Task("Build")
   .IsDependentOn("NugetRestore")
   .Does(()=>
   {
-    DotNetCoreMSBuild("FibonacciHeap.sln");
+    var settings = new DotNetCoreBuildSettings{Configuration = "Release"};
+    DotNetCoreBuild("FibonacciHeap.sln", settings);
   });
 
 Task("NugetRestore")
@@ -28,19 +26,6 @@ Task("NugetRestore")
   .Does(()=>
   {
     DotNetCoreRestore();
-  });
-
-Task("NugetPack")
-  .IsDependentOn("Clean")
-  .Does(()=>
-  {
-    var settings = new DotNetCorePackSettings
-    {
-      Configuration = "Release",
-      OutputDirectory = "nupkgs"
-    };
-
-    DotNetCorePack("src/FibonacciHeap", settings);
   });
 
 Task("Clean")
