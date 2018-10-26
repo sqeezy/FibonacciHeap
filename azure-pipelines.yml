@@ -1,0 +1,7 @@
+pool:
+  vmImage: 'vs2017-win2016'
+- task: DotNetCoreInstaller@0
+  inputs:
+    version: '2.1.403'
+- task: Tests
+    - script: ./build.ps1 -Target Xunit
