@@ -1,5 +1,4 @@
-Fibonacci Heap
-=============
+# Fibonacci Heap
 
 ## C# implementation of a [fibonacci heap structure](https://en.wikipedia.org/wiki/Fibonacci_heap).
 
