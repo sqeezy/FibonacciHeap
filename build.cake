@@ -2,9 +2,9 @@ var target = Argument("target", "Default");
 var outputDir = "./bin";
 
 Task("Default")
-  .IsDependentOn("Xunit");
+  .IsDependentOn("Test");
 
-Task("Xunit")
+Task("Test")
   .IsDependentOn("Build")
   .Does(()=>
   {
