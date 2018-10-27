@@ -42,7 +42,9 @@ Task("Publish-NuGet")
     throw new InvalidOperationException("Could not resolve NuGet API url.");
   }
 
-  var packagePath = GetFiles("./src/FibonacciHeap/bin/Release/FibonacciHeap.*.nupkg").Single().FullPath;
+  var packagePath = GetFiles("./src/FibonacciHeap/bin/Release/FibonacciHeap.*.nupkg")
+                      .Single()
+                      .FullPath;
   Information($"Publish {packagePath}");
   // Push the package.
   NuGetPush(packagePath, new NuGetPushSettings {
