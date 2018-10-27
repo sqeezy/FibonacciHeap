@@ -6,4 +6,4 @@ jobs:
   
   steps:
 
-  - powershell: ./build.ps1 -Target Xunit
+  - powershell: ./build.ps1 -Target Test
