@@ -1,24 +1,21 @@
 jobs:
 
-- job:
-  displayName: Windows-Test
+- job: WindowsTest
   pool:
     vmImage: vs2017-win2016
   steps:
   - powershell: ./build.ps1 -Target Test
 
-- job:
-  displayName: Linux-Test
+- job: LinuxTest
   pool:
     vmImage: ubuntu-16.04
   steps:
   - script: ./build.sh -Target Test
 
-- job:
-  displayName: Delivery
+- job: Delivery
   dependsOn:
-  - Windows-Test
-  - Linux-Test
+  - WindowsTest
+  - LinuxTest
   pool:
     vmImage: vs2017-win2016
   steps:
