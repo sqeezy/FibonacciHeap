@@ -1,9 +1,31 @@
 jobs:
+
 - job:
-
+  displayName: Windows-Test
   pool:
-    vmImage: 'vs2017-win2016'
-  
+    vmImage: vs2017-win2016
   steps:
-
   - powershell: ./build.ps1 -Target Test
+
+- job:
+  displayName: Linux-Test
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+  - script: ./build.sh -Target Test
+
+- job:
+  displayName: Delivery
+  dependsOn:
+  - Windows-Test
+  - Linux-Test
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+    - powershell:  '"Text" | Set-Content Output.txt'
+    - powershell: 'cp Output.txt $env:ArifactStagingDirectory'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: Binaries
+      
