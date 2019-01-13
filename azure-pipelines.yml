@@ -19,8 +19,4 @@ jobs:
   pool:
     vmImage: vs2017-win2016
   steps:
-    - powershell:  '$env:NugetApiUrl | Set-Content $env:BUILD_ARTIFACTSTAGINGDIRECTORY/Output.txt'
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: Binaries
+    - powershell:  ./build.ps1 -Target Publish-Nuget
