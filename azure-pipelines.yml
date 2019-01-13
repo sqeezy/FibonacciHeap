@@ -1,9 +1,22 @@
 jobs:
-- job:
 
+- job: WindowsTest
   pool:
-    vmImage: 'vs2017-win2016'
-  
+    vmImage: vs2017-win2016
   steps:
-
   - powershell: ./build.ps1 -Target Test
+
+- job: LinuxTest
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+  - script: ./build.sh
+
+- job: Delivery
+  dependsOn:
+  - WindowsTest
+  - LinuxTest
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+    - powershell:  ./build.ps1 -Target Publish-Nuget
