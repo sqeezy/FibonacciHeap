@@ -19,7 +19,7 @@ jobs:
   pool:
     vmImage: vs2017-win2016
   steps:
-    - powershell:  '"Text" | Set-Content Output.txt'
+    - powershell:  '"Text" | Set-Content $env:BUILD_ARTIFACTSTAGINGDIRECTORY/Output.txt'
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
