@@ -10,7 +10,7 @@ jobs:
   pool:
     vmImage: ubuntu-16.04
   steps:
-  - script: ./build.sh build.cake -Target Test
+  - script: ./build.sh
 
 - job: Delivery
   dependsOn:
