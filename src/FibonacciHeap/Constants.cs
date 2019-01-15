@@ -1,6 +1,6 @@
 using System;
 
-public static class Constants
+internal static class Constants
 {
         /// <summary>
         /// Maximum nodes quantity in the heap.
