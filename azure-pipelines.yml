@@ -16,6 +16,7 @@ jobs:
   dependsOn:
   - WindowsTest
   - LinuxTest
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   pool:
     vmImage: vs2017-win2016
   steps:
