@@ -237,7 +237,7 @@
         /// Performs a cascading cut operation. This cuts newChild from its parent and then
         /// does the same for its parent, and so on up the tree.
         /// </summary>
-        protected void CascadingCut(FibonacciHeapNode<T, TKey> y)
+        private void CascadingCut(FibonacciHeapNode<T, TKey> y)
         {
             FibonacciHeapNode<T, TKey> z = y.Parent;
 
@@ -260,7 +260,7 @@
             }
         }
 
-        protected void Consolidate()
+        private void Consolidate()
         {
             int arraySize = ((int) Math.Floor(Math.Log(_nNodes)*Constants.OneOverLogPhi)) + 1;
 
@@ -374,7 +374,7 @@
         /// This method assumes that min is non-null.
         /// Running time: O(1)
         /// </summary>
-        protected void Cut(FibonacciHeapNode<T, TKey> x, FibonacciHeapNode<T, TKey> y)
+        private void Cut(FibonacciHeapNode<T, TKey> x, FibonacciHeapNode<T, TKey> y)
         {
             // remove newParent from childlist of newChild and decrement degree[newChild]
             x.Left.Right = x.Right;
@@ -409,7 +409,7 @@
         /// Makes newChild a child of Node newParent.
         /// O(1)
         /// </summary>
-        protected void Link(FibonacciHeapNode<T, TKey> newChild, FibonacciHeapNode<T, TKey> newParent)
+        private static void Link(FibonacciHeapNode<T, TKey> newChild, FibonacciHeapNode<T, TKey> newParent)
         {
             // remove newChild from root list of heap
             newChild.Left.Right = newChild.Right;
