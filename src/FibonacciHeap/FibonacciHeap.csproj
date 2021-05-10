@@ -6,6 +6,11 @@
       <Authors>Anton Herzog</Authors>
       <Description>Simple implementation of the Fibonacci Head Datastructure.</Description>
       <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
 </Project>
