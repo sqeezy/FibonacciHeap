@@ -1,8 +1,8 @@
-﻿namespace FibonacciHeap
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+namespace FibonacciHeap
+{
     /// <summary>
     /// Fibonacci Heap realization. Uses generic type T for data storage and TKey as a key type.
     /// </summary>
@@ -10,6 +10,7 @@
     /// <typeparam name="TKey">Type of the object key. Should implement IComparable.</typeparam>
     public class FibonacciHeap<T, TKey> where TKey : IComparable<TKey>
     {
+        private readonly TKey _minKeyValue;
 
         /// <summary>
         /// Minimum (statring) node of the heap.
@@ -20,18 +21,15 @@
         /// The nodes quantity.
         /// </summary>
         private int _nNodes;
-        private readonly TKey _minKeyValue;
 
-        #region Constructors
         /// <summary>
         /// Initializes the new instance of the Heap.
         /// </summary>
         /// <param name="minKeyValue">Minimum value of the key - to be used for comparing.</param>
-        public FibonacciHeap( TKey minKeyValue )
+        public FibonacciHeap(TKey minKeyValue)
         {
             _minKeyValue = minKeyValue;
         }
-        #endregion
 
         /// <summary>
         /// Identifies whatever heap is empty.
@@ -57,7 +55,7 @@
         /// </summary>
         public void DecreaseKey(FibonacciHeapNode<T, TKey> x, TKey k)
         {
-            if (k.CompareTo( x.Key) > 0 )
+            if (k.CompareTo(x.Key) > 0)
             {
                 throw new ArgumentException("decreaseKey() got larger key value");
             }
@@ -66,13 +64,13 @@
 
             FibonacciHeapNode<T, TKey> y = x.Parent;
 
-            if ((y != null) && (x.Key.CompareTo( y.Key) < 0 ))
+            if (y != null && x.Key.CompareTo(y.Key) < 0)
             {
                 Cut(x, y);
                 CascadingCut(y);
             }
 
-            if (x.Key.CompareTo( _minNode.Key) < 0 )
+            if (x.Key.CompareTo(_minNode.Key) < 0)
             {
                 _minNode = x;
             }
@@ -105,7 +103,7 @@
                 _minNode.Right = node;
                 node.Right.Left = node;
 
-                if (node.Key.CompareTo( _minNode.Key) < 0 )
+                if (node.Key.CompareTo(_minNode.Key) < 0)
                 {
                     _minNode = node;
                 }
@@ -201,9 +199,11 @@
         /// <returns></returns>
         public static FibonacciHeap<T, TKey> Union(FibonacciHeap<T, TKey> h1, FibonacciHeap<T, TKey> h2)
         {
-            var h = new FibonacciHeap<T, TKey>( h1._minKeyValue.CompareTo( h2._minKeyValue ) < 0 ? h1._minKeyValue : h2._minKeyValue );
+            var h = new FibonacciHeap<T, TKey>(h1._minKeyValue.CompareTo(h2._minKeyValue) < 0
+                                                   ? h1._minKeyValue
+                                                   : h2._minKeyValue);
 
-            if ((h1 != null) && (h2 != null))
+            if (h1 != null && h2 != null)
             {
                 h._minNode = h1._minNode;
 
@@ -216,7 +216,7 @@
                         h._minNode.Right = h2._minNode;
                         h2._minNode.Left = h._minNode;
 
-                        if (h2._minNode.Key.CompareTo( h1._minNode.Key) < 0 )
+                        if (h2._minNode.Key.CompareTo(h1._minNode.Key) < 0)
                         {
                             h._minNode = h2._minNode;
                         }
@@ -262,7 +262,7 @@
 
         private void Consolidate()
         {
-            int arraySize = ((int) Math.Floor(Math.Log(_nNodes)*Constants.OneOverLogPhi)) + 1;
+            int arraySize = (int) Math.Floor(Math.Log(_nNodes) * Constants.OneOverLogPhi) + 1;
 
             var array = new List<FibonacciHeapNode<T, TKey>>(arraySize);
 
@@ -307,7 +307,7 @@
 
                     // There is, make one of the nodes a child of the other.
                     // Do this based on the key value.
-                    if (x.Key.CompareTo( y.Key) > 0 )
+                    if (x.Key.CompareTo(y.Key) > 0)
                     {
                         FibonacciHeapNode<T, TKey> temp = y;
                         y = x;
@@ -357,7 +357,7 @@
                     y.Right.Left = y;
 
                     // Check if this is a new min.
-                    if ( y.Key.CompareTo( _minNode.Key ) < 0 )
+                    if (y.Key.CompareTo(_minNode.Key) < 0)
                     {
                         _minNode = y;
                     }

@@ -6,8 +6,8 @@ namespace FibonacciHeap.Tests
     {
         private FibonacciHeapNode<int, int> _nodeGeneric;
         private FibonacciHeap<int, int> _sutGeneric;
-        private FibonacciHeapDoubleKey< int > _sut;
-        private FibonacciHeapNodeDoubleKey< int > _nodeDoubleKey;
+        private FibonacciHeapDoubleKey<int> _sut;
+        private FibonacciHeapNodeDoubleKey<int> _nodeDoubleKey;
 
         [Fact]
         public void It_can_be_constructed()
@@ -18,11 +18,24 @@ namespace FibonacciHeap.Tests
         [Fact]
         public void It_can_store_an_element_of_data()
         {
-            GivenNode();
             WhenSutIsCreated();
-            _sut.Insert(_nodeDoubleKey);
+            _sut.Insert(GivenDoubleKeyNode());
         }
 
+        [Fact]
+        public void IsEmpty_works()
+        {
+            WhenSutIsCreated();
+            Assert.True(_sut.IsEmpty());
+            _sut.Insert(GivenDoubleKeyNode());
+            Assert.False(_sut.IsEmpty());
+            _sut.Insert(GivenDoubleKeyNode());
+            Assert.False(_sut.IsEmpty());
+            _sut.RemoveMin();
+            Assert.False(_sut.IsEmpty());
+            _sut.RemoveMin();
+            Assert.True(_sut.IsEmpty());
+        }
 
         [Fact]
         public void It_can_be_constructed_generic()
@@ -38,14 +51,14 @@ namespace FibonacciHeap.Tests
             _sutGeneric.Insert(_nodeGeneric);
         }
 
-        private void GivenNode( )
+        private static FibonacciHeapNodeDoubleKey<int> GivenDoubleKeyNode()
         {
-            _nodeDoubleKey = new FibonacciHeapNodeDoubleKey< int >( 0, 0 );
+            return new FibonacciHeapNodeDoubleKey<int>(0, 0);
         }
 
-        private void WhenSutIsCreated( )
+        private void WhenSutIsCreated()
         {
-            _sut = new FibonacciHeapDoubleKey< int >(  );
+            _sut = new FibonacciHeapDoubleKey<int>();
         }
 
         private void GivenNodeGeneric()
