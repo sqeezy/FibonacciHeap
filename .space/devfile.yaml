@@ -5,3 +5,4 @@ attributes:
   space:
     editor:
       type: Rider
+    projectRoot: FibonacciHeap.sln
