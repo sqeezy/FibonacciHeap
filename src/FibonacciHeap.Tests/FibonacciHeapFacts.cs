@@ -7,7 +7,6 @@ public class FibonacciHeapFacts
     private FibonacciHeapNode<int, int> _nodeGeneric;
     private FibonacciHeap<int, int> _sutGeneric;
     private FibonacciHeapDoubleKey<int> _sut;
-    private FibonacciHeapNodeDoubleKey<int> _nodeDoubleKey;
 
     [Fact]
     public void It_can_be_constructed()
