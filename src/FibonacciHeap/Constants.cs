@@ -1,5 +1,7 @@
 using System;
 
+namespace FibonacciHeap;
+
 internal static class Constants
 {
         /// <summary>
