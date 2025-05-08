@@ -8,22 +8,22 @@ Task("Test")
   .IsDependentOn("Build")
   .Does(()=>
   {
-    DotNetCoreTest("./src/FibonacciHeap.Tests/FibonacciHeap.Tests.csproj");
+    DotNetTest("./src/FibonacciHeap.Tests/FibonacciHeap.Tests.csproj");
   });
 
 Task("Build")
   .IsDependentOn("NugetRestore")
   .Does(()=>
   {
-    var settings = new DotNetCoreBuildSettings{Configuration = "Release"};
-    DotNetCoreBuild("FibonacciHeap.sln", settings);
+    var settings = new DotNetBuildSettings{Configuration = "Release"};
+    DotNetBuild("FibonacciHeap.sln", settings);
   });
 
 Task("NugetRestore")
   .IsDependentOn("Clean")
   .Does(()=>
   {
-    DotNetCoreRestore();
+    DotNetRestore();
   });
 
 Task("Publish-NuGet")
