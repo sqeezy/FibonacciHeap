@@ -1,0 +1,33 @@
+name: Build and Test
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+jobs:
+    build-and-test:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [windows-latest, ubuntu-latest]
+                dotnet-version: [8.0.x, 9.0.x]
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v3
+              with:
+                    dotnet-version: ${{ matrix.dotnet-version }}
+
+            - name: Install dependencies
+              run: dotnet restore
+
+            - name: Run build script
+              shell: pwsh
+              run: |
+                    ./build.ps1 --target=Test
+              
