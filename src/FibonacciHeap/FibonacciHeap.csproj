@@ -5,7 +5,7 @@
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Anton Herzog</Authors>
       <Description>Simple implementation of the Fibonacci Head Datastructure.</Description>
-      <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
