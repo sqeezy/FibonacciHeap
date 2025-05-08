@@ -13,7 +13,6 @@ jobs:
         strategy:
             matrix:
                 os: [windows-latest, ubuntu-latest]
-                dotnet-version: [8.0.x, 9.0.x]
 
         steps:
             - name: Checkout code
@@ -22,7 +21,7 @@ jobs:
             - name: Setup .NET
               uses: actions/setup-dotnet@v3
               with:
-                    dotnet-version: ${{ matrix.dotnet-version }}
+                    dotnet-version: 9.0.x
 
             - name: Install dependencies
               run: dotnet restore
