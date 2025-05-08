@@ -12,7 +12,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
-                os: [windows-latest, ubuntu-latest]
+                os: [windows-latest, ubuntu-latest, macos-latest]
 
         steps:
             - name: Checkout code
@@ -30,4 +30,3 @@ jobs:
               shell: pwsh
               run: |
                     ./build.ps1 --target=Test
-              
