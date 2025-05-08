@@ -35,3 +35,4 @@ tools/
 .vs/*
 .store/*
 .ionide/*
+.idea/*
