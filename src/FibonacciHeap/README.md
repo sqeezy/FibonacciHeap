@@ -1,6 +1,6 @@
 # Fibonacci Heap
 
-A [Fibonacci Heap](https://en.wikipedia.org/wiki/Fibonacci_heap) is a data structure modelling a priority queue. The implemenation is generic like System.Collection.Generic types.
+A [Fibonacci Heap](https://en.wikipedia.org/wiki/Fibonacci_heap) is a data structure modelling a priority queue. The implementation is generic like System.Collection.Generic types.
 
 ## Example
 
